@@ -1,0 +1,19 @@
+// DSCH 2.6h
+// 7/6/2017 5:51:53 AM
+// Z:\media\Study\VLSI\Diagrams\ABCD.sch
+
+module ABCD( out1);
+ output out1;
+ nmos #(10) nmos(w3,vss,w2); // 1.0u 0.12u
+ pmos #(31) pmos(out1,w4,w5); // 2.0u 0.12u
+ pmos #(31) pmos(out1,w6,w7); // 2.0u 0.12u
+ pmos #(10) pmos(w4,vdd,w8); // 2.0u 0.12u
+ pmos #(10) pmos(w6,vdd,w9); // 2.0u 0.12u
+ nmos #(31) nmos(out1,w10,w11); // 1.0u 0.12u
+ nmos #(10) nmos(w10,vss,w12); // 1.0u 0.12u
+ nmos #(31) nmos(out1,w3,w13); // 1.0u 0.12u
+endmodule
+
+// Simulation parameters in Verilog Format
+
+// Simulation parameters

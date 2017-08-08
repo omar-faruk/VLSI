@@ -1,0 +1,68 @@
+USER SYMBOL by DSCH3
+DATE 3/5/2017 12:39:51 AM
+SYM  #adder4bit
+BB(0,0,40,100)
+TITLE 10 -7  #adder4bit
+MODEL 6000
+REC(5,5,30,90)
+PIN(0,90,0.00,0.00)c0
+PIN(0,70,0.00,0.00)in3
+PIN(0,80,0.00,0.00)in2
+PIN(0,60,0.00,0.00)in4
+PIN(0,50,0.00,0.00)in5
+PIN(0,40,0.00,0.00)in6
+PIN(0,30,0.00,0.00)in7
+PIN(0,20,0.00,0.00)in8
+PIN(0,10,0.00,0.00)in9
+PIN(40,20,2.00,1.00)out4
+PIN(40,30,2.00,1.00)out3
+PIN(40,40,2.00,1.00)out2
+PIN(40,50,2.00,1.00)out1
+PIN(40,10,2.00,1.00)out5
+LIG(0,90,5,90)
+LIG(0,70,5,70)
+LIG(0,80,5,80)
+LIG(0,60,5,60)
+LIG(0,50,5,50)
+LIG(0,40,5,40)
+LIG(0,30,5,30)
+LIG(0,20,5,20)
+LIG(0,10,5,10)
+LIG(35,20,40,20)
+LIG(35,30,40,30)
+LIG(35,40,40,40)
+LIG(35,50,40,50)
+LIG(35,10,40,10)
+LIG(5,5,5,95)
+LIG(5,5,35,5)
+LIG(35,5,35,95)
+LIG(35,95,5,95)
+VLG module adder4bit( c0,in3,in2,in4,in5,in6,in7,in8,
+VLG  in9,out4,out3,out2,out1,out5);
+VLG  input c0,in3,in2,in4,in5,in6,in7,in8;
+VLG  input in9;
+VLG  output out4,out3,out2,out1,out5;
+VLG  wire w4,w5,w9,w19,w20,w21,w22,w23;
+VLG  wire w24,w25,w26,w27,w28,w29,w30;
+VLG  xor #(26) xor2_1(w19,in5,in4);
+VLG  xor #(15) xor2_2(out2,w19,w4);
+VLG  and #(15) and2_3(w20,w4,w19);
+VLG  and #(15) and2_4(w21,in4,in5);
+VLG  or #(22) or2_5(w5,w20,w21);
+VLG  xor #(26) xor2_6(w22,in7,in6);
+VLG  xor #(15) xor2_7(out3,w22,w5);
+VLG  and #(15) and2_8(w23,w5,w22);
+VLG  and #(15) and2_9(w24,in6,in7);
+VLG  or #(22) or2_10(w9,w23,w24);
+VLG  xor #(26) xor2_11(w25,in9,in8);
+VLG  xor #(15) xor2_12(out4,w25,w9);
+VLG  and #(15) and2_13(w26,w9,w25);
+VLG  and #(15) and2_14(w27,in8,in9);
+VLG  or #(15) or2_15(out5,w26,w27);
+VLG  xor #(26) xor2_16(w28,in3,in2);
+VLG  xor #(15) xor2_17(out1,w28,c0);
+VLG  and #(15) and2_18(w29,c0,w28);
+VLG  and #(15) and2_19(w30,in2,in3);
+VLG  or #(22) or2_20(w4,w29,w30);
+VLG endmodule
+FSYM

@@ -1,0 +1,21 @@
+// DSCH 2.6h
+// 3/12/2017 1:04:51 AM
+// Z:\media\Study\VLSI\Diagrams\CMOS-NAND.sch
+
+module CMOS-NAND( A,B,out1);
+ input A,B;
+ output out1;
+ nmos #(7) nmos(w2,A,A); // 1.0u 0.12u
+ nmos #(17) nmos(out1,w2,B); // 1.0u 0.12u
+ pmos #(17) pmos(out1,vdd,A); // 2.0u 0.12u
+ pmos #(17) pmos(out1,vdd,B); // 2.0u 0.12u
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#2000 A=~A;
+#4000 B=~B;
+
+// Simulation parameters
+// A CLK 40.000 40.000
+// B CLK 80.000 80.000

@@ -1,0 +1,55 @@
+// DSCH 2.6h
+// 3/11/2017 11:33:47 PM
+// Z:\media\Study\VLSI\Diagrams\adder4bit.sch
+
+module adder4bit( c0,in3,in2,in4,in5,in6,in7,in8,
+ in9,out4,out3,out2,out1,out5);
+ input c0,in3,in2,in4,in5,in6,in7,in8;
+ input in9;
+ output out4,out3,out2,out1,out5;
+ wire w18,w19,w20,w21,w22,w23,w24,w25;
+ wire w26,w27,w28,w29;
+ xor #(26) xor2_ad1(w18,in5,in4);
+ xor #(15) xor2_ad2(out2,w18,in3);
+ and #(15) and2_ad3(w19,in3,w18);
+ and #(15) and2_ad4(w20,in4,in5);
+ or #(22) or2_ad5(w4,w19,w20);
+ xor #(26) xor2_ad6(w21,in7,in6);
+ xor #(15) xor2_ad7(out3,w21,w4);
+ and #(15) and2_ad8(w22,w4,w21);
+ and #(15) and2_ad9(w23,in6,in7);
+ or #(22) or2_ad10(w8,w22,w23);
+ xor #(26) xor2_ad11(w24,in9,in8);
+ xor #(15) xor2_ad12(out4,w24,w8);
+ and #(15) and2_ad13(w25,w8,w24);
+ and #(15) and2_ad14(w26,in8,in9);
+ or #(15) or2_ad15(out5,w25,w26);
+ xor #(26) xor2_ad16(w27,w14,in2);
+ xor #(15) xor2_ad17(out1,w27,c0);
+ and #(15) and2_ad18(w28,c0,w27);
+ and #(15) and2_ad19(w29,in2,w14);
+ or #(29) or2_ad20(in3,w28,w29);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 c0=~c0;
+#2000 in3=~in3;
+#3000 in2=~in2;
+#4000 in4=~in4;
+#5000 in5=~in5;
+#6000 in6=~in6;
+#7000 in7=~in7;
+#8000 in8=~in8;
+#9000 in9=~in9;
+
+// Simulation parameters
+// c0 CLK 10 10
+// in3 CLK 20 20
+// in2 CLK 30 30
+// in4 CLK 40 40
+// in5 CLK 50 50
+// in6 CLK 60 60
+// in7 CLK 70 70
+// in8 CLK 80 80
+// in9 CLK 90 90

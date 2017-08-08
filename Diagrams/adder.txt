@@ -1,0 +1,16 @@
+// DSCH 2.6h
+// 3/11/2017 11:41:30 PM
+// Z:\media\Study\VLSI\Diagrams\adder.sch
+
+module adder( carry,sum);
+ output carry,sum;
+ or #(16) or2(carry,w2,w3);
+ xor #(23) xor2(w7,w5,w6);
+ xor #(16) xor2(sum,w7,w8);
+ and #(16) and2(w3,w5,w6);
+ and #(16) and2(w2,w8,w7);
+endmodule
+
+// Simulation parameters in Verilog Format
+
+// Simulation parameters

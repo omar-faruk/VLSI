@@ -1,0 +1,23 @@
+// DSCH 2.6h
+// 5/25/2017 11:45:24 AM
+// Z:\media\Study\VLSI\Lab6\shift_register.sch
+
+module shift_register( Reset,clk_shift,d,digit3,digit2,digit1,digit0);
+ input Reset,clk_shift,d;
+ output digit3,digit2,digit1,digit0;
+ dreg #(24) dreg1(digit3,w5,d,Reset,clk_shift);
+ dreg #(24) dreg2(digit2,w7,digit3,Reset,clk_shift);
+ dreg #(24) dreg3(digit1,w9,digit2,Reset,clk_shift);
+ dreg #(24) dreg4(digit0,w11,digit1,Reset,clk_shift);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 Reset=~Reset;
+#2000 clk_shift=~clk_shift;
+#3000 d=~d;
+
+// Simulation parameters
+// Reset CLK 10 10
+// clk_shift CLK 20 20
+// d CLK 30 30

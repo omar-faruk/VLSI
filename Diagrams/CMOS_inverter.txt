@@ -1,0 +1,17 @@
+// DSCH 2.6h
+// 4/1/2017 10:57:49 PM
+// Z:\media\Study\VLSI\Diagrams\CMOS_inverter.sch
+
+module CMOS_inverter( A,out1);
+ input A;
+ output out1;
+ nmos #(17) nmos(vss,vss,vss); // 1.0u 0.12u
+ pmos #(17) pmos(vss,vdd,vss); // 2.0u 0.12u
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 A=~A;
+
+// Simulation parameters
+// A CLK 10.000 10.000

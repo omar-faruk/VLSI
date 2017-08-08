@@ -1,0 +1,21 @@
+// DSCH 2.6h
+// 3/12/2017 1:51:16 AM
+// Z:\media\Study\VLSI\Diagrams\CMOS-NOR.sch
+
+module CMOS-NOR( B,A,out1);
+ input B,A;
+ output out1;
+ pmos #(7) pmos(w4,vdd,A); // 2.0u 0.12u
+ pmos #(17) pmos(out1,w4,B); // 2.0u 0.12u
+ nmos #(18) nmos(out1,A,A); // 2.0u 0.25u
+ nmos #(18) nmos(out1,A,B); // 2.0u 0.25u
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 B=~B;
+#500 A=~A;
+
+// Simulation parameters
+// B CLK 20.000 20.000
+// A CLK 10.000 10.000
